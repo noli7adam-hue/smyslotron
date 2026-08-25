@@ -3,7 +3,7 @@
 import os
 
 PRICE = {"openai": 0.13, "gemini": 0.15, "voyage": 0.18, "qwen": 0.07,
-         "ds_in": 0.28, "ds_out": 0.42}  # $/1M токенов
+         "openrouter": 0.13, "ds_in": 0.28, "ds_out": 0.42}  # $/1M токенов
 USD_RUB = 80.0
 P_FINE, P_COARSE = 15, 75
 DEDUP_SIM_SURE, DEDUP_SIM_FLOOR = 0.97, 0.85
@@ -23,6 +23,7 @@ TITLES = {
     "intent": "OpenAI · интент-префикс",
     "voyage": "Voyage · 3-large",
     "qwen": "Qwen3 · text-embedding-v4",
+    "openrouter": "OpenRouter · text-embedding-3-large",
 }
 # производные: (вид, параметры)
 DERIVED = {
@@ -38,6 +39,8 @@ COMPAT_API = {
                "voyage-3-large", 400, {"output_dimension": 2048}, "voyage"),
     "qwen": ("https://dashscope-intl.aliyuncs.com/compatible-mode/v1/embeddings",
              "DASHSCOPE_API_KEY", "text-embedding-v4", 10, {"dimensions": 2048}, "qwen"),
+    "openrouter": ("https://openrouter.ai/api/v1/embeddings", "OPENROUTER_API_KEY",
+                   "openai/text-embedding-3-large", 128, {}, "openrouter"),
 }
 
 
